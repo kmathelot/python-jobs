@@ -1,0 +1,28 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: job-gh-actions
+  namespace: tools
+spec:
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 3
+  schedule: "0 5 * * *"
+  jobTemplate:
+    spec:
+      activeDeadlineSeconds: 1800
+      template:
+        metadata:
+          labels:
+            app: job-gh-actions
+        spec:
+          containers:
+          - name: rds-logs
+            image: ghcr.io/kmathelot/python-jobs/python-jobs:0.0.1
+            imagePullPolicy: IfNotPresent
+            command:
+            - python
+            args:
+            - reports.py
+            - fetch
+            - github
+          restartPolicy: OnFailure
