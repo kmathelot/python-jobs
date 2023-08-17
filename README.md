@@ -76,3 +76,4 @@ There is a template to deploy the jobs in a Kubernetes cluster, to make it work 
 [] Add variable db instance identifier
 [] DB cleaner 
 [] Make it more Generic
+[] Add stream log features
