@@ -74,4 +74,5 @@ There is a template to deploy the jobs in a Kubernetes cluster, to make it work 
 [] Create a dedicated Github analysis tool with UI  
 [] Add organization name in either config or argument  
 [] Add variable db instance identifier
-[] DB cleaner  
+[] DB cleaner 
+[] Make it more Generic
